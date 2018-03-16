@@ -1,0 +1,14 @@
+<div class="container">
+  <h2 class="pink-text teal anset-3 center-align">Show Todos</h2>
+  <ul class="collection">
+    <li class="collection-item" *ngFor='let list of todos'>
+      {{list.title}}
+      <a [routerLink] ="['']" class="secondary-content">
+        <i (click) = "editTodo($event, list)" class="fa fa-pencil fa-lg"></i>
+      </a>
+      <a class="secondary-content">
+          <i (click)="deleteTodo($event, list)" class="fa fa-trash fa-lg"></i>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="card-panel cyan lighten-3 center-align">To Do List App</div>
+	<div class="row">
+		<div class="col s6">
+			<input type="text" id="addItem" name="addItem" placeholder="Add Item" #addItems="ngModel" [(ngModel)]="newTodo.title" required>
+		</div>
+		<div class="col s6">
+			<button class="waves-effect waves-light btn red" [disabled]="!addItems.valid" (click)="addItem()">Add<i class="fa fa-plus"></i></button>
+		</div>
+	</div>
+	<div class="row">
+		<button class="btn" [routerLink]="['showTodo']">Show List</button>
+	</div>
+</div>
