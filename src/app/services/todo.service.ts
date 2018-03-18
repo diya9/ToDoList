@@ -11,7 +11,7 @@ export class TodoService {
   todos: Observable<List[]>;
   todoDoc : AngularFirestoreDocument<List>;
   editform: boolean = false;
-  
+  itemEdit:List;
 
   constructor(public db: AngularFirestore) {
     this.todoList = this.db.collection('task');
@@ -35,9 +35,8 @@ export class TodoService {
     this.todoDoc = this.db.doc(`task/${todo.id}`);
     this.todoDoc.delete();
   }
-
-  editTodo(todo:List){
-    this.editform = true;
-    return this.editform;
+  updateItem(id,item:List){
+    this.todoDoc = this.db.doc(`task/${id}`);
+    this.todoDoc.update(item);
   }
 }
